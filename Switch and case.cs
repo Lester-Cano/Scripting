@@ -42,7 +42,7 @@ namespace ConsoleApp11
                     double Des1 = (deducciones * 0.125);
                     double ARL;
 
-                    Console.WriteLine("ingrese su acitivdad");
+                    Console.WriteLine("ingrese su tipo de riesgo");
                     int entrada1 = int.Parse(Console.ReadLine());
 
                     double SalarioInd = salario - Desc - Des1;
