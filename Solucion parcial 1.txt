@@ -1,3 +1,0 @@
-﻿1>------ Operación Compilar iniciada: proyecto: ParcialFundamentos, configuración: Debug Any CPU ------
-1>  ParcialFundamentos -> C:\Users\Nestor\Desktop\190904FP\ParcialFundamentos\bin\Debug\ParcialFundamentos.exe
-========== Compilar: 1 correctos, 0 incorrectos, 0 actualizados, 0 omitidos ==========
