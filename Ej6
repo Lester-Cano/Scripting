@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Ejseis : MonoBehaviour
+{
+    Light mlight;
+    float t = 0f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        mlight = GetComponent<Light>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        t += Time.deltaTime;
+        float m = -0.1f;
+        float b = 1f;
+        float y = m * t + b;
+
+        
+        if (t>=0)
+        {
+            mlight.intensity = y;
+        }
+    }
+}
