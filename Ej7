@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Ejsiete : MonoBehaviour
+{
+    Light mlight;
+    float t = 0f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        mlight = GetComponent<Light>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        t += Time.deltaTime;
+        float m = 0.2f;
+        float b = 0f;
+        float y = m * t + b;
+        Color c = new Color(y, 0f, 0f);
+
+        float m2 = -0.6f;
+        float b2 = 5f;
+        float y2 = m2 * t + b2;
+        Color c2 = new Color(y2, 0f, 0f);
+
+        if (t >= 0) 
+        {
+            mlight.color = c;
+        }
+        if (t >= 5)
+        {
+            mlight.color = c2;
+        }
+
+    }
+}
