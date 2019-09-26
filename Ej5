@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Ejcinco : MonoBehaviour
+{
+    float t = 0f;
+    Transform mtransfrom;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        mtransfrom = GetComponent<Transform>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        t += Time.deltaTime;
+        float m = -0.6f;
+        float b = 0f;
+        float y = m * t + b;
+
+
+        mtransfrom.localScale.x = y;
+       
+    }
+}
