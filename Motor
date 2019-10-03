@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Motor : MonoBehaviour
+{
+    [SerializeField] float magnitud = 8;
+    [SerializeField] float magnitudh= 90;
+    [SerializeField] float fuerzadashh = 500;
+    [SerializeField] float fuerzadashv = 25;
+    AudioSource audiom;
+    Rigidbody rb2d;
+
+    void Start()
+    {
+        audiom = GetComponent<AudioSource>();
+        rb2d = GetComponent<Rigidbody>();
+    }
+
+
+    void Update()
+    {
+        Vector3 direccionv = transform.forward;
+        float sentido = Input.GetAxis("Vertical");
+        Vector3 velocidad = magnitud * direccionv * sentido;
+        Vector3 distancia = velocidad * Time.deltaTime;
+        transform.position = transform.position + distancia;
+
+        Vector3 direccionh = new Vector3(0, 1, 0);
+        float sentidoh = Input.GetAxis("Horizontal");
+        Vector3 velocidadh = magnitudh * direccionh * sentidoh;
+        Vector3 distanciah = velocidadh * Time.deltaTime;
+        transform.eulerAngles +=  distanciah;
+
+        Vector3 dashh = fuerzadashh * direccionh;
+        Vector3 dashv = fuerzadashh * new Vector3(0, 1, 0);
+
+        if (velocidad.magnitude>=magnitud||velocidadh.magnitude>=magnitudh)
+        {
+            if (!audiom.isPlaying) audiom.Play();
+        }
+        else
+        {
+            audiom.Stop();
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb2d.AddForce(dashh);
+            rb2d.AddForce(dashv);
+        }
+
+
+    }
+}
