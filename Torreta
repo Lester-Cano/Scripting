@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Torret : MonoBehaviour
+{
+
+    [SerializeField] float magnitudh = 75;
+
+    void Start()
+    {
+        
+    }
+
+    
+    void Update()
+    {
+        Vector3 direccionh = new Vector3(0, 1, 0);
+        float sentidoh = Input.GetAxis("HorizontalTorret");
+        Vector3 velocidadh = magnitudh * direccionh * sentidoh;
+        Vector3 distanciah = velocidadh * Time.deltaTime;
+        transform.eulerAngles += distanciah;
+    }
+}
